@@ -48,7 +48,7 @@ html, body {
     grid-area: side;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 15px;
+    padding: 25px;
     padding-left: 0;
 }
 
@@ -59,6 +59,10 @@ html, body {
     padding: 10px;
     color: white;
     margin-bottom: 15px;
+}
+
+#side .tweet:last-child {
+    margin-bottom: 0;
 }
 
 #side .tweet p,
