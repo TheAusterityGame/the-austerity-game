@@ -14,15 +14,18 @@ function time () {
   let s = d.getSeconds()
   if (String(s).length === 1) {
     s = `0${s}`
-  }
-  return `${d.getHours()}:${d.getMinutes()}:${s}`
+  }  
+  return {
+    hhmmss: `${d.getHours()}:${d.getMinutes()}:${s}`,
+    hhmm: `${d.getHours()}:${d.getMinutes()}`
+  };
 }
 
 function tick () {
-  $$.clock.innerText = time()
-  requestAnimationFrame(tick)
+  $$.clock.innerText = time().hhmmss;
+  requestAnimationFrame(tick);
 }
 
-requestAnimationFrame(tick)
+requestAnimationFrame(tick);
 
 $$.page2.className += ' active';

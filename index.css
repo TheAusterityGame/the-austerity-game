@@ -110,19 +110,20 @@ html, body {
 
 #side {
     grid-area: side;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
     padding: 25px;
     padding-left: 0;
 }
 
-#side .tweet {
-    width: 100%;
-    min-height: 50px;
+#side .tweet {    
+    width: 100%;    
     background-color: var(--blue1);
+    min-height: 50px;
+    margin-bottom: 15px;
     padding: 10px;
     color: white;
-    margin-bottom: 15px;
+    animation: newtweet 3s;
 }
 
 #side .tweet:last-child {
@@ -255,7 +256,7 @@ button
 /*** ANIMATIONS ***/
 
 .scroll {
-    animation: scroll-text 15s linear infinite;
+    animation: scroll-text 30s linear infinite;
     position: relative;
     display: inline-block;
 }
@@ -271,4 +272,24 @@ button
 
 @keyframes blink {
     50% { opacity: 0; }
+}
+
+@keyframes newtweet {
+    0% {              
+        min-height: 0px;
+        margin-bottom: 0px;
+        padding: 0px 10px 0px 10px;
+        height: 0px;
+        opacity: 0;
+    }
+    20% {         
+        opacity: 0;
+    }
+    100% {
+        min-height: 50px;
+        margin-bottom: 15px;
+        padding: 10px 10px 10px 10px;
+        height: initial;
+        opacity: 1;
+    }
 }
