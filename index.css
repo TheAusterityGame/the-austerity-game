@@ -1,5 +1,9 @@
 :root {
-    --blue: lightblue;
+    --blue1: lightblue;
+    --blue2: cornflowerblue;
+    --blue3: rgba(0, 0, 255, 0.3);
+    --grey: grey;
+    --darkgrey: darkgrey;
 }
 
 * {
@@ -20,7 +24,7 @@ html, body {
     width: 100%;
     height: 100%;
     display: none;
-    grid-template-rows: auto auto auto auto 100px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 100px;
     grid-template-columns: 1fr 1fr 0.5fr;
     grid-template-areas: "main main side"
                          "main main side"
@@ -37,7 +41,69 @@ html, body {
 
 .main {
     grid-area: main;
-    padding: 15px;
+    margin: 25px;
+    overflow: hidden;
+}
+
+.chart_grid {
+    width: 100%;
+}
+
+#chart {
+    display: flex;
+    flex-direction: row;
+    float: left;
+    height: 85%;
+    align-items: flex-end;
+}
+
+.chart_bar {
+    height: 100%;
+    flex-grow: 1;
+    transition: margin-top 0.5s ease;
+}
+
+.chart_bar:nth-child(1) {
+    height: 100%;
+    background-color: red;
+}
+
+.chart_bar:nth-child(2) {
+    height: 45%;
+    background-color: green;
+}
+
+.chart_bar:nth-child(3) {
+    height: 60%;
+    background-color: blue;
+}
+
+.chart_bar:nth-child(4) {
+    height: 10%;
+    background-color: orange;
+}
+
+#chart_x {
+    background-color: var(--darkgrey);
+    height: 15%;
+    float: left;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.chart_bar_icon {
+    flex-grow: 1;
+    position: relative;
+    color: white;
+}
+
+.chart_bar_icon span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /*** SIDE ***/
@@ -46,57 +112,55 @@ html, body {
     grid-area: side;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 15px;
+    padding: 25px;
+    padding-left: 0;
 }
 
 .side .tweet {
     width: 100%;
     min-height: 50px;
-    background-color: var(--blue);
+    background-color: var(--blue1);
     padding: 10px;
     color: white;
     margin-bottom: 15px;
 }
 
-.side .tweet p,
-.side .tweet span {
+#side .tweet:last-child {
+    margin-bottom: 0;
+}
+
+#side .tweet p,
+#side .tweet span {
     display: inline;
 }
 
 .side .tweet .username {
     color: black;
+    text-decoration: underline;
 }
 
-.side .tweet .datetime {
-    float: right;
+#side .tweet .datetime {
+    color: var(--grey);
 }
 
 /*** BAR ***/
 
-.bar {
+#options {
     grid-area: bar;
-    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
 }
 
-.bar .button {
-    width: 50%;
-    height: 100%;
-    float: left;
+#options .option {
     position: relative;
-    opacity: 0.5;
-    cursor: not-allowed;
+    flex-grow: 1;
+    margin: 5px 25px;
+    display: grid;
+    grid-template-areas: "text button1 button2";
+    grid-template-columns: 60% 20% 20%;
 }
 
-.bar .button.active {
-    opacity: 0.9;
-    cursor: pointer;
-}
-
-.bar .button.active:hover {
-    opacity: 1;
-}
-
-.bar .button span {
+#options .option span {
     display: block;
     position: absolute;
     top: 50%;
@@ -108,12 +172,25 @@ html, body {
     text-shadow: 0 0 1px black;
 }
 
-.bar .yes {
-    background-color: var(--blue);
+#options .option_text {
+    grid-area: text;
+    padding: 25px;
 }
 
-.bar .no {
-    background-color: darkblue;
+#options .option:nth-child(1) {
+    background-color: var(--blue1);
+}
+
+#options .option:nth-child(2) {
+    background-color: var(--blue2);
+}
+
+#options .option:nth-child(3) {
+    background-color: var(--blue3);
+}
+
+#options button {
+    margin: 10px;
 }
 
 /*** BREAKING ***/
@@ -132,6 +209,8 @@ html, body {
     padding-left: 115px;
     height: 100%;
     overflow: hidden;
+    display: grid;
+    grid-template-areas: "prefix text";
 }
 
 .breaking #news div {
@@ -139,19 +218,26 @@ html, body {
     overflow: hidden;
 }
 
-.breaking .breaking_news_text {
-    margin-left: 20px;
-}
-
-.breaking #news p {
-    margin: 0;
-}
-
-.breaking #news div.scroll {
+#breaking #news div.scroll {
     padding-left: 15px;
 }
 
-.breaking #clock {
+#breaking_news_prefix {
+    font-weight: bold;
+    grid-area: prefix;
+}
+
+#breaking #breaking_news_text {
+    margin-left: 20px;
+    white-space: nowrap;
+    grid-area: text;
+}
+
+#breaking #breaking_news_text p {
+    margin: 0;
+}
+
+#breaking #clock {
     background-color: white;
     color: black;
     border: 5px solid red;
@@ -162,6 +248,8 @@ html, body {
     padding: 12px;
 }
 
+/*** ANIMATIONS ***/
+
 .scroll {
     animation: scroll-text 15s linear infinite;
     position: relative;
@@ -171,4 +259,12 @@ html, body {
 @keyframes scroll-text {
     0% {transform: translateX(85%);}
     100% {transform: translateX(-120%);}
+}
+
+.blink {
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
 }

@@ -2,90 +2,158 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="index.css" />
+    <title>The Austerity Game</title>
+    <meta name="description" content="The Austerity Game" />
 </head>
 <body>
     <div class="page" id="page_1">
         PAGE 1
     </div>
     <div class="page" id="page_2">
-        <div class="main"></div>
-        <div class="side">
-            <div class="tweet">
-                <span class="username">@username</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <span class="datetime">12:45pm</span>
+        <div id="main">
+            <div id="chart" class="chart_grid">
+                <div class="chart_bar">
+                    <span class="up_arrow"></span>
+                    <span class="down_arrow"></span>
+                </div>
+                <div class="chart_bar">
+                    <span class="up_arrow"></span>
+                    <span class="down_arrow"></span>
+                </div>
+                <div class="chart_bar">
+                    <span class="up_arrow"></span>
+                    <span class="down_arrow"></span>
+                </div>
+                <div class="chart_bar">
+                    <span class="up_arrow"></span>
+                    <span class="down_arrow"></span>
+                </div>
             </div>
-            <div class="tweet">
-                <span class="username">@username</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <span class="datetime">12:45pm</span>
-            </div>
-            <div class="tweet">
-                <span class="username">@username</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <span class="datetime">12:45pm</span>
-            </div>
-            <div class="tweet">
-                <span class="username">@username</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <span class="datetime">12:45pm</span>
-            </div>
-            <div class="tweet">
-                <span class="username">@username</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <span class="datetime">12:45pm</span>
-            </div>
-            <div class="tweet">
-                <span class="username">@username</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <span class="datetime">12:45pm</span>
-            </div>
-            <div class="tweet">
-                <span class="username">@username</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <span class="datetime">12:45pm</span>
-            </div>
-            <div class="tweet">
-                <span class="username">@username</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <span class="datetime">12:45pm</span>
-            </div>
-            <div class="tweet">
-                <span class="username">@username</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <span class="datetime">12:45pm</span>
-            </div>
-            <div class="tweet">
-                <span class="username">@username</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <span class="datetime">12:45pm</span>
-            </div>
-            <div class="tweet">
-                <span class="username">@username</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <span class="datetime">12:45pm</span>
-            </div>
-            <div class="tweet">
-                <span class="username">@username</span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <span class="datetime">12:45pm</span>
+            <div id="chart_x" class="chart_grid">
+                <div class="chart_bar_icon">
+                    <span>1</span>
+                </div>
+                <div class="chart_bar_icon">
+                    <span>2</span>
+                </div>
+                <div class="chart_bar_icon">
+                    <span>3</span>
+                </div>
+                <div class="chart_bar_icon">
+                    <span>4</span>
+                </div>
             </div>
         </div>
-        <div class="bar">
-            <div class="yes" class="button">
-                <span>yes</span>
+        <div id="options">
+            <div class="option">
+                <div class="option_text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+                <button>NO</button>
+                <button>YES</button>
             </div>
-            <div class="no" class="button">
-                <span>no</span>
+            <div class="option">
+                <div class="option_text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <button>NO</button>
+                <button>YES</button>
+            </div>
+            <div class="option">
+                <div class="option_text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <button>NO</button>
+                <button>YES</button>
             </div>
         </div>
-        <div class="breaking">
+        <div id="breaking">
             <div id="clock"></div>
             <div id="news">
-                <div>BREAKING NEWS:</div>
+                <div id="breaking_news_prefix">BREAKING NEWS</div>
                 <div id="breaking_news_text">
                     <p class="scroll">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
+            </div>
+        </div>
+        <div id="side">
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+            <div class="tweet">
+                <span class="datetime">12:45pm</span>
+                <span class="username">@username</span>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </div>
     </div>

@@ -1,3 +1,27 @@
+/*** GRID ***/
+
+.page.two-halves {
+    grid-template-rows: 1fr 100px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "main side";
+}
+
+#setup {
+    grid-area: main;
+    margin: 25px;
+    overflow: hidden;
+}
+
+#rules {
+    grid-area: side;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 25px;
+    padding-left: 0;
+}
+
+/*** CONTENT ***/
+
 .explanation {
     padding-bottom: 15px;
     font-weight: bold;
