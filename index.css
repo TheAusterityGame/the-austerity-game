@@ -145,6 +145,11 @@ html, body {
 
 /*** BAR ***/
 
+button
+{
+  cursor: pointer;
+}
+
 #options {
     grid-area: bar;
     display: flex;
