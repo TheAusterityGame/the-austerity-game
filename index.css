@@ -156,8 +156,14 @@ button
     flex-direction: column;
 }
 
+#options .slot {
+    height: 120px;
+    overflow-y: hidden;
+}
+
 #options .option {
     position: relative;
+    height: inherit;
     flex-grow: 1;
     margin: 5px 25px;
     display: grid;
@@ -274,6 +280,16 @@ button
 @keyframes blink {
     50% { opacity: 0; }
 }
+
+.fadein {
+    animation: fadein 3s;
+}
+
+@keyframes fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 
 @keyframes newtweet {
     0% {              

@@ -27,9 +27,9 @@ document.addEventListener('QUESTIONS LOADED', function(event)
 
   // display 3 random questions
   questions.shuffle()
-  displayQuestion(pickRandomQuestion())
-  displayQuestion(pickRandomQuestion())
-  displayQuestion(pickRandomQuestion())
+  for (var slotIndex = 1; slotIndex <= 3; slotIndex++) {
+    displayQuestion(pickRandomQuestion(), 'slot_' + slotIndex);
+  }
 })
 
 function pickRandomQuestion()
@@ -40,12 +40,12 @@ function pickRandomQuestion()
   return question
 }
 
-function displayQuestion(question)
+function displayQuestion(question, slotId)
 {
-  var template = '<div class="option" id="' + question.id + '"><div class="option_text">'
-  template += question.label
-  template += '</div><button class="yes">YAY</button><button class="no">NAY</button></div>'
-  $('#options').append(template)
+  var template = '<div class="option fadein" id="' + question.id + '"><div class="option_text">';
+  template += question.label;
+  template += '</div><button class="yes">YAY</button><button class="no">NAY</button></div>';
+  $('#options #' + slotId).append(template);
 
   $('#' + question.id + ' .yes').click(function()
   {
@@ -56,12 +56,20 @@ function displayQuestion(question)
   {
     replaceQuestion(question)
   })
+
+  const BOX_MIN_BRIGHTNESS = 128;
+  var colorR = 256 + Math.floor((Math.random() * BOX_MIN_BRIGHTNESS)) - BOX_MIN_BRIGHTNESS;
+  var colorG = 256 + Math.floor((Math.random() * BOX_MIN_BRIGHTNESS)) - BOX_MIN_BRIGHTNESS;
+  var colorB = 256 + Math.floor((Math.random() * BOX_MIN_BRIGHTNESS)) - BOX_MIN_BRIGHTNESS;
+  $('#' + question.id).css("background-color", "rgb(" + colorR + "," + colorG + "," + colorB + ")");
 }
 
 function replaceQuestion(question)
 {
-  $('#' + question.id).remove()
-  displayQuestion(pickRandomQuestion())
+  var questionBox = $('#' + question.id);
+  var slotId = questionBox.parent().attr('id');
+  questionBox.remove();
+  displayQuestion(pickRandomQuestion(), slotId);
 }
 
 function updateDepartmentImpacts(question)
