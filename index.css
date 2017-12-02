@@ -74,6 +74,7 @@ html, body {
 
 #bar {
     grid-area: bar;
+    padding: 0 25px;
 }
 
 #bar .button {
@@ -122,18 +123,29 @@ html, body {
 
 #breaking #news {
     color: white;
-    padding: 10px;
     background-color: red;
     text-transform: uppercase;
+    padding: 17px;
     padding-left: 115px;
     height: 100%;
     overflow: hidden;
 }
 
-#breaking #news p,
 #breaking #news div {
-    margin: 0;
     float: left;
+    overflow: hidden;
+}
+
+#breaking #breaking_news_text {
+    margin-left: 20px;
+}
+
+#breaking #news p {
+    margin: 0;
+}
+
+#breaking #news div.scroll {
+    padding-left: 15px;
 }
 
 #breaking #clock {

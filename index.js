@@ -25,4 +25,4 @@ function tick () {
 
 requestAnimationFrame(tick)
 
-$.page1.className += ' active';
+$.page2.className += ' active';
