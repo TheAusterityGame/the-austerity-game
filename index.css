@@ -83,10 +83,12 @@ html, body {
     float: left;
     position: relative;
     opacity: 0.5;
+    cursor: not-allowed;
 }
 
 #bar .button.active {
     opacity: 0.9;
+    cursor: pointer;
 }
 
 #bar .button.active:hover {
