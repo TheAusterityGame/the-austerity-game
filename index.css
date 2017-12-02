@@ -16,10 +16,10 @@ html, body {
     font-family: sans-serif;
 }
 
-#container {
+.page {
     width: 100%;
     height: 100%;
-    display: grid;
+    display: none;
     grid-template-rows: auto auto auto auto 100px;
     grid-template-columns: 1fr 1fr 0.5fr;
     grid-template-areas: "main main side"
@@ -27,6 +27,10 @@ html, body {
                          "main main side"
                          "bar bar side"
                          "breaking breaking side";
+}
+
+.page.active {
+    display: grid;
 }
 
 /*** MAIN ***/
@@ -100,11 +104,11 @@ html, body {
     text-shadow: 0 0 1px black;
 }
 
-#bar #aye {
+#bar #yes {
     background-color: var(--blue);
 }
 
-#bar #nay {
+#bar #no {
     background-color: darkblue;
 }
 

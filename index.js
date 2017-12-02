@@ -1,5 +1,8 @@
 const $ = {
-  'clock': document.querySelector('#clock')
+  clock: document.querySelector('#clock'),
+  page1: document.querySelector('#page_1'),
+  page2: document.querySelector('#page_2'),
+  page3: document.querySelector('#page_3')
 }
 
 const state = {
@@ -21,3 +24,5 @@ function tick () {
 }
 
 requestAnimationFrame(tick)
+
+$.page1.className += ' active';
