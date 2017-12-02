@@ -76,7 +76,8 @@ function parseTweet(data)
     username: data.fields.username,
     content: data.fields.content,
     department: department,
-    complaint: (data.fields.complaint == true)
+    complaint: (data.fields.complaint == true),
+    displayed: 0
   }
 
   return tweet;

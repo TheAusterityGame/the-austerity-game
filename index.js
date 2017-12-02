@@ -26,6 +26,10 @@ function tick () {
   requestAnimationFrame(tick);
 }
 
+function pickRandomlyFrom(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
 requestAnimationFrame(tick);
 
 $$.page2.className += ' active';

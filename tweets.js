@@ -1,8 +1,24 @@
-const TWEET_PERIOD = 10000; // 10 seconds
+const TWEET_PERIOD = 2000; // 10 seconds
+const TWEET_FRESHNESS_FACTOR = 3; // check 3 random tweets each time and get the least displayed one
 var tweets = null;
 
-function getTweetData() {    
-    return tweets[0];
+function getTweetData() {
+    var leastDisplayed = { displayed: Infinity };
+    for (var i = 0; i < TWEET_FRESHNESS_FACTOR; i++) {
+        do {
+            var candidate = pickRandomlyFrom(tweets);
+        } while (!isTweetOk(candidate));
+        if (candidate.displayed < leastDisplayed.displayed) {
+            leastDisplayed = candidate;
+        }
+    }
+    leastDisplayed.displayed++;
+    return leastDisplayed;
+}
+
+function isTweetOk(tweet) {
+    
+    return true;
 }
 
 function tweet() {

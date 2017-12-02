@@ -86,6 +86,3 @@ function generateVestedInterest(index) {
     return pickRandomlyFrom(DEPARTMENTS);
 }
 
-function pickRandomlyFrom(array) {
-    return array[Math.floor(Math.random() * array.length)];
-}
