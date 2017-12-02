@@ -3,18 +3,13 @@ var questions = null,
     questionsCount = 0
 
 // very temporary
-var departments =
-{
-  'Education':
-  {
-    popularity: 53, // popularity of the department head
-    spending: 12 // current spending
-  },
-  'Transport':
-  {
-    popularity: 68,
-    spending: 23
-  }
+var departments = {};
+
+for (var i = 0; i < DEPARTMENTS.length; i++) {
+  departments[DEPARTMENTS[i].name] = {
+    popularity: 100,
+    spending: 80
+  };
 }
 
 // when questions are loaded from the spreadsheet, display 3 random ones
@@ -49,12 +44,12 @@ function displayQuestion(question, slotId)
 
   $('#' + question.id + ' .yes').click(function()
   {
-    updateDepartmentImpacts(question)
-    replaceQuestion(question)
+    updateDepartmentImpacts(question);
+    replaceQuestion(question);
   })
   $('#' + question.id + ' .no').click(function()
   {
-    replaceQuestion(question)
+    replaceQuestion(question);
   })
 
   const BOX_MIN_BRIGHTNESS = 128;
@@ -81,11 +76,12 @@ function updateDepartmentImpacts(question)
   question.answered = true
 
   // update the departments
-  for(var i=0; i<question.impacts.lengths; i++)
+  for(var i=0; i<question.impacts.length; i++)
   {
-    var impact = question.impacts[i]
-    var department = departments[impact.department]
-    department.popularity += impact.popularity
-    department.spending += impact.spending
+    var impact = question.impacts[i];
+    var department = departments[impact.department];
+    department.popularity += impact.popularity;
+    department.spending += impact.spending;
+    
   }
 }

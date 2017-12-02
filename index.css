@@ -59,27 +59,40 @@ html, body {
 
 .chart_bar {
     height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
     flex-grow: 1;
     transition: height 0.5s ease;
 }
 
 .chart_bar:nth-child(1) {
-    height: 100%;
     background-color: red;
 }
 
 .chart_bar:nth-child(2) {
-    height: 45%;
     background-color: green;
 }
 
 .chart_bar:nth-child(3) {
-    height: 60%;
     background-color: blue;
 }
 
 .chart_bar:nth-child(4) {
-    height: 10%;
+    background-color: orange;
+}
+.chart_bar:nth-child(5) {
+    background-color: red;
+}
+
+.chart_bar:nth-child(6) {
+    background-color: green;
+}
+
+.chart_bar:nth-child(7) {
+    background-color: blue;
+}
+
+.chart_bar:nth-child(8) {
     background-color: orange;
 }
 

@@ -5,6 +5,16 @@ const $$ = {
   page3: document.querySelector('#page_3')
 }
 
+const DEPARTMENTS = [
+  { name: "Healthcare", vestedInterest: "a private hospital" },
+  { name: "Education", vestedInterest: "a posh private school" },
+  { name: "Housing", vestedInterest: "a real-estate company" },
+  { name: "Transport", vestedInterest: "a private taxi fleet" },
+  { name: "Sanitation", vestedInterest: "a company running an incinerator facility" },
+  { name: "Recreation and Parklands", vestedInterest: "a popular fitness centre chain" },
+  { name: "Museums and Libraries", vestedInterest: "a multiplex cinema" }
+];
+
 const state = {
 
 }
