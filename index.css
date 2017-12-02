@@ -2,6 +2,7 @@
     --blue1: lightblue;
     --blue2: cornflowerblue;
     --blue3: rgba(0, 0, 255, 0.3);
+    --grey: grey;
 }
 
 * {
@@ -67,10 +68,11 @@ html, body {
 
 #side .tweet .username {
     color: black;
+    text-decoration: underline;
 }
 
 #side .tweet .datetime {
-    float: right;
+    color: var(--grey);
 }
 
 /*** BAR ***/
