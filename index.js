@@ -1,4 +1,4 @@
-const $ = {
+const $$ = {
   clock: document.querySelector('#clock'),
   page1: document.querySelector('#page_1'),
   page2: document.querySelector('#page_2'),
@@ -19,10 +19,10 @@ function time () {
 }
 
 function tick () {
-  $.clock.innerText = time()
+  $$.clock.innerText = time()
   requestAnimationFrame(tick)
 }
 
 requestAnimationFrame(tick)
 
-$.page2.className += ' active';
+$$.page2.className += ' active';
