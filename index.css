@@ -3,6 +3,7 @@
     --blue2: cornflowerblue;
     --blue3: rgba(0, 0, 255, 0.3);
     --grey: grey;
+    --darkgrey: darkgrey;
 }
 
 * {
@@ -23,7 +24,7 @@ html, body {
     width: 100%;
     height: 100%;
     display: none;
-    grid-template-rows: auto auto auto auto 100px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 100px;
     grid-template-columns: 1fr 1fr 0.5fr;
     grid-template-areas: "main main side"
                          "main main side"
@@ -40,6 +41,54 @@ html, body {
 
 #main {
     grid-area: main;
+}
+
+.chart_grid {
+    margin: 25px;
+    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#chart {
+    height: 75%;
+}
+
+#chart_x {
+    background-color: var(--darkgrey);
+    margin-top: 0;
+    height: 15%;
+    padding: 15px;
+    font-size: 2rem;
+}
+
+.chart_bar {
+    width: 100%;
+}
+
+.chart_bar:nth-child(1) {
+    margin-top: 0;
+    background-color: red;
+}
+
+.chart_bar:nth-child(2) {
+    margin-top: 45%;
+    background-color: green;
+}
+
+.chart_bar:nth-child(3) {
+    margin-top: 60%;
+    background-color: blue;
+}
+
+.chart_bar:nth-child(4) {
+    margin-top: 10%;
+    background-color: orange;
+}
+
+.chart_bar_icon {
+    text-align: center;
+    color: white;
 }
 
 /*** SIDE ***/
@@ -81,13 +130,13 @@ html, body {
 
 /*** BAR ***/
 
-#bar {
+#options {
     grid-area: bar;
     display: flex;
     flex-direction: column;
 }
 
-#bar .option {
+#options .option {
     position: relative;
     flex-grow: 1;
     margin: 5px 25px;
@@ -96,7 +145,7 @@ html, body {
     grid-template-columns: 60% 20% 20%;
 }
 
-#bar .option span {
+#options .option span {
     display: block;
     position: absolute;
     top: 50%;
@@ -108,24 +157,24 @@ html, body {
     text-shadow: 0 0 1px black;
 }
 
-#bar .option_text {
+#options .option_text {
     grid-area: text;
     padding: 25px;
 }
 
-#bar .option:nth-child(1) {
+#options .option:nth-child(1) {
     background-color: var(--blue1);
 }
 
-#bar .option:nth-child(2) {
+#options .option:nth-child(2) {
     background-color: var(--blue2);
 }
 
-#bar .option:nth-child(3) {
+#options .option:nth-child(3) {
     background-color: var(--blue3);
 }
 
-#bar button {
+#options button {
     margin: 10px;
 }
 
