@@ -1,6 +1,6 @@
-var questionsURL = 'https://api.airtable.com/v0/appUhYpS5VrTEb9Nm/Questions?api_key=keyvcbzivvvtnmex2'
-
-function loadData (url)
+var questionsUrl = 'https://api.airtable.com/v0/appUhYpS5VrTEb9Nm/Questions?api_key=keyvcbzivvvtnmex2';
+var tweetsUrl = 'https://api.airtable.com/v0/appUhYpS5VrTEb9Nm/Tweets?api_key=keyvcbzivvvtnmex2';
+function loadData (url, which, parser)
 {
 	$.ajax(
   {
@@ -8,18 +8,18 @@ function loadData (url)
     dataType: 'json',
     success: function(responseJSON)
     {
-      var questions = []
-      console.log('data loaded!')
+      var things = []
+      console.log(which + ' data loaded!')
       // console.log(responseJSON)
       for (var i = 0; i < responseJSON.records.length; i++)
       {
-        var question = parseQuestion(responseJSON.records[i])
-        questions.push(question)
+        var thing = parser(responseJSON.records[i])
+        things.push(thing)
       }
-      console.log(questions)
-      document.dispatchEvent(new CustomEvent('QUESTIONS LOADED', {detail:questions} ))
+      console.log(things)
+      document.dispatchEvent(new CustomEvent(which + ' LOADED', {detail: things} ))
     }
-	})
+  });
 }
 
 function parseQuestion(data)
@@ -60,7 +60,26 @@ function parseQuestion(data)
     question.impacts.push(impact)
   }
 
-  return question
+  return question;
+}
+
+function parseTweet(data)
+{
+  var department = data.fields.department;
+  if (department != undefined) {
+    department = department[0]; 
+  }
+
+  var tweet =
+  {
+    id: data.id,
+    username: data.fields.username,
+    content: data.fields.content,
+    department: department,
+    complaint: (data.fields.complaint == true)
+  }
+
+  return tweet;
 }
 
 // https://stackoverflow.com/a/10142256/2928562
@@ -78,4 +97,5 @@ Array.prototype.shuffle = function()
 }
 
 // execute loadData
-loadData(questionsURL)
+loadData(questionsUrl, 'QUESTIONS', parseQuestion);
+loadData(tweetsUrl, 'TWEETS', parseTweet);

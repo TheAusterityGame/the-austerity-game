@@ -1,4 +1,9 @@
 const TWEET_PERIOD = 10000; // 10 seconds
+var tweets = null;
+
+function getTweetData() {    
+    return tweets[0];
+}
 
 function tweet() {
     var newTweet = $('#side .tweet:first-child').clone();
@@ -13,11 +18,11 @@ function tweet() {
 }
 
 $('#side .tweet .datetime').html(time().hhmm);
-var tweetLoopId = setInterval(tweet, TWEET_PERIOD);
 
-function getTweetData() {
-    return {
-        username: '@maurovanetti',
-        content: 'Test test test lorem ipsum yeah yeah. <b>#test</b>'
-    }
-}
+// when questions are loaded from the spreadsheet, display 3 random ones
+document.addEventListener('TWEETS LOADED', function(event)
+{
+    tweets = event.detail;
+    tweets.shuffle();
+    var tweetLoopId = setInterval(tweet, TWEET_PERIOD);
+});
