@@ -39,7 +39,7 @@ html, body {
 
 /*** MAIN ***/
 
-.main {
+#main {
     grid-area: main;
     margin: 25px;
     overflow: hidden;
@@ -108,7 +108,7 @@ html, body {
 
 /*** SIDE ***/
 
-.side {
+#side {
     grid-area: side;
     overflow-y: auto;
     overflow-x: hidden;
@@ -116,7 +116,7 @@ html, body {
     padding-left: 0;
 }
 
-.side .tweet {
+#side .tweet {
     width: 100%;
     min-height: 50px;
     background-color: var(--blue1);
@@ -134,7 +134,7 @@ html, body {
     display: inline;
 }
 
-.side .tweet .username {
+#side .tweet .username {
     color: black;
     text-decoration: underline;
 }
@@ -195,13 +195,13 @@ html, body {
 
 /*** BREAKING ***/
 
-.breaking {
+#breaking {
     grid-area: breaking;
     position: relative;
     padding: 25px;
 }
 
-.breaking #news {
+#breaking #news {
     color: white;
     background-color: red;
     text-transform: uppercase;
@@ -213,7 +213,7 @@ html, body {
     grid-template-areas: "prefix text";
 }
 
-.breaking #news div {
+#breaking #news div {
     float: left;
     overflow: hidden;
 }
