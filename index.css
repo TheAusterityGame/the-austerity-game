@@ -48,6 +48,7 @@ html, body {
     overflow-y: auto;
     overflow-x: hidden;
     padding: 15px;
+    padding-left: 0;
 }
 
 #side .tweet {
@@ -80,13 +81,16 @@ html, body {
     flex-direction: column;
 }
 
-#bar .button {
+#bar .option {
     position: relative;
     flex-grow: 1;
     margin: 5px 25px;
+    display: grid;
+    grid-template-areas: "text button1 button2";
+    grid-template-columns: 60% 20% 20%;
 }
 
-#bar .button span {
+#bar .option span {
     display: block;
     position: absolute;
     top: 50%;
@@ -98,20 +102,25 @@ html, body {
     text-shadow: 0 0 1px black;
 }
 
-#bar .button:nth-child(1) {
+#bar .option_text {
+    grid-area: text;
+    padding: 25px;
+}
+
+#bar .option:nth-child(1) {
     background-color: var(--blue1);
 }
 
-#bar .button:nth-child(2) {
+#bar .option:nth-child(2) {
     background-color: var(--blue2);
 }
 
-#bar .button:nth-child(3) {
+#bar .option:nth-child(3) {
     background-color: var(--blue3);
 }
 
-#bar .button_text {
-
+#bar button {
+    margin: 10px;
 }
 
 /*** BREAKING ***/
@@ -169,6 +178,8 @@ html, body {
     padding: 12px;
 }
 
+/*** ANIMATIONS ***/
+
 .scroll {
     animation: scroll-text 15s linear infinite;
     position: relative;
@@ -178,4 +189,12 @@ html, body {
 @keyframes scroll-text {
     0% {transform: translateX(85%);}
     100% {transform: translateX(-120%);}
+}
+
+.blink {
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
 }
