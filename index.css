@@ -1,0 +1,155 @@
+:root {
+    --blue: lightblue;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto auto auto auto 100px;
+    grid-template-columns: 1fr 1fr 0.5fr;
+    grid-template-areas: "main main side"
+                         "main main side"
+                         "main main side"
+                         "bar bar side"
+                         "breaking breaking side";
+}
+
+/*** MAIN ***/
+
+#main {
+    grid-area: main;
+}
+
+/*** SIDE ***/
+
+#side {
+    grid-area: side;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 15px;
+}
+
+#side .tweet {
+    width: 100%;
+    min-height: 50px;
+    background-color: var(--blue);
+    padding: 10px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+#side .tweet p,
+#side .tweet span {
+    display: inline;
+}
+
+#side .tweet .username {
+    color: black;
+}
+
+#side .tweet .datetime {
+    float: right;
+}
+
+/*** BAR ***/
+
+#bar {
+    grid-area: bar;
+}
+
+#bar .button {
+    width: 50%;
+    height: 100%;
+    float: left;
+    position: relative;
+    opacity: 0.5;
+}
+
+#bar .button.active {
+    opacity: 0.9;
+}
+
+#bar .button.active:hover {
+    opacity: 1;
+}
+
+#bar .button span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 0 0 1px black;
+}
+
+#bar #aye {
+    background-color: var(--blue);
+}
+
+#bar #nay {
+    background-color: darkblue;
+}
+
+/*** BREAKING ***/
+
+#breaking {
+    grid-area: breaking;
+    position: relative;
+    padding: 25px;
+}
+
+#breaking #news {
+    color: white;
+    padding: 10px;
+    background-color: red;
+    text-transform: uppercase;
+    padding-left: 115px;
+    height: 100%;
+    overflow: hidden;
+}
+
+#breaking #news p,
+#breaking #news div {
+    margin: 0;
+    float: left;
+}
+
+#breaking #clock {
+    background-color: white;
+    color: black;
+    border: 5px solid red;
+    width: 100px;
+    position: absolute;
+    height: 50px;
+    text-align: center;
+    padding: 12px;
+}
+
+.scroll {
+    animation: scroll-text 15s linear infinite;
+    position: relative;
+    display: inline-block;
+}
+
+@keyframes scroll-text {
+    0% {transform: translateX(85%);}
+    100% {transform: translateX(-120%);}
+}
