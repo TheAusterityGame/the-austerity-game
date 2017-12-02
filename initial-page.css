@@ -1,0 +1,19 @@
+.explanation {
+    padding-bottom: 15px;
+    font-weight: bold;
+}
+
+.politicians {
+    border: 1px solid blue;
+}
+
+.politician {
+    border: 1px solid blue;
+    margin: 20px;
+    padding: 5px;
+    height: 70px;
+}
+
+img.portrait {
+    float: left;
+}

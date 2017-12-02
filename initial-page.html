@@ -7,12 +7,36 @@
 <body>
     <div class="page" id="page_1">
         <div class="main">
-            Main
+            <div class="explanation">
+                You, local leaders of the Conservative Party, just won the elections in Austerityville.<br>
+                You are given the honour and responsibility to implement austerity in Austerityville
+                through ruthless budget cuts.                
+            </div>
+            <div class="politicians">
+                <div class="how-many">
+                    How many players are you?
+                    <input type="radio" name="players_count" value="1">1</input>
+                    <input type="radio" name="players_count" value="2">2</input>
+                    <input type="radio" name="players_count" value="3">3</input>
+                    <input type="radio" name="players_count" value="4">4</input>                
+                    <input type="radio" name="players_count" value="4">5</input>                
+                    <input type="radio" name="players_count" value="4">6</input>                
+                    <input type="radio" name="players_count" value="4">7</input>
+                </div>
+                <div class="politician">
+                    <img src="https://dummyimage.com/40x60/000000/fff.png&text=..." class="portrait">
+                    Sir <input type="text" class="first-name" placeholder="Your First Name Here">
+                    <span class="last-name">McTory</span><br>
+                    In charge of <span class="department">Healthcare</span><br>
+                    Owner of <span class="vested-interest">a private bus company</span>
+                </div>
+            </div>
         </div>
         <div class="side">
             Side
         </div>
     </div>
+    <script src="jquery-3.2.1.min.js"></script>
     <script src="index.js"></script>
     <script src="initial-page.js"></script>
 </body>
