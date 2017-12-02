@@ -74,25 +74,14 @@ html, body {
 
 #bar {
     grid-area: bar;
-    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
 }
 
 #bar .button {
-    width: 50%;
-    height: 100%;
-    float: left;
     position: relative;
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-#bar .button.active {
-    opacity: 0.9;
-    cursor: pointer;
-}
-
-#bar .button.active:hover {
-    opacity: 1;
+    flex-grow: 1;
+    margin: 5px 25px;
 }
 
 #bar .button span {
@@ -107,12 +96,20 @@ html, body {
     text-shadow: 0 0 1px black;
 }
 
-#bar #yes {
+#bar .button:nth-child(1) {
     background-color: var(--blue);
 }
 
-#bar #no {
-    background-color: darkblue;
+#bar .button:nth-child(2) {
+    background-color: deepskyblue;
+}
+
+#bar .button:nth-child(3) {
+    background-color: cornflowerblue;
+}
+
+#bar .button_text {
+
 }
 
 /*** BREAKING ***/
@@ -148,6 +145,10 @@ html, body {
 
 #breaking #news div.scroll {
     padding-left: 15px;
+}
+
+#breaking_news_prefix {
+    font-weight: bold;
 }
 
 #breaking #clock {
