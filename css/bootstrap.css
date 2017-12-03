@@ -1151,7 +1151,7 @@ input[type="color"],
   line-height: 20px;
   color: #000000;
   vertical-align: middle;
-  background: #bbbbbb;
+  /*background: #bbbbbb;*/
   border: 2px solid #000000;
 }
 
@@ -1189,7 +1189,8 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 .uneditable-input {
-  background-color: #bbbbbb;
+  /*background-color: #bbbbbb;*/
+  /*padding: 5px;*/
   border: 0;
   border-bottom: 2px solid #000000;
 }

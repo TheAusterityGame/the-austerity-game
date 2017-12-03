@@ -23,6 +23,26 @@ html, body, input[type=text], input[type=button], button.yes, button.no {
     /*font-family: 'Numans', sans-serif;*/
 }
 
+.panel
+{
+  display: block;
+  padding: 10px 15px;
+  margin: 10px 5px;
+  margin-left: -5px;
+  border: 2px solid black;
+  -webkit-box-shadow: 0 0 0 5px #eee, 11px 13px 0 4px black;
+  -moz-box-shadow: 0 0 0 5px #eee, 11px 13px 0 4px black;
+  box-shadow: 0 0 0 5px #eee, 11px 13px 0 4px black;
+  background: #eee;
+  color: #999;
+}
+
+.panel b, .panel strong
+{
+  color: black;
+}
+
+
 .page {
     width: 100%;
     height: 100%;
@@ -77,15 +97,24 @@ html, body, input[type=text], input[type=button], button.yes, button.no {
     font-weight: bold;
 }
 
+.how-many
+{
+  margin-bottom: 20px;
+  color: black;
+}
 .politicians {
-    border: 1px solid blue;
+    /*border: 1px solid blue;*/
 }
 
 .politician {
-    border: 1px solid blue;
-    margin: 20px;
-    padding: 5px;
-    min-height: 70px;
+  border: 2px solid;
+  margin-bottom: -2px;
+  padding: 5px;
+  min-height: 70px;
+}
+.politician:last-child
+{
+  margin-bottom: 0;
 }
 
 .politician.template {
@@ -93,8 +122,19 @@ html, body, input[type=text], input[type=button], button.yes, button.no {
 }
 
 img.portrait {
-    float: left;
-    height: 60px;
+  float: left;
+  height: 60px;
+}
+
+input.first-name
+{
+  width: 33%;
+}
+
+.which
+{
+  max-height: 400px;
+  overflow-y: scroll;
 }
 
 
@@ -211,8 +251,10 @@ button, input[type=button]
   /*border-radius: 20px;*/
 }
 
-.proceed {
-    min-width: 30%;
+.proceed
+{
+  width: 100% !important;
+  margin: 20px 0 10px;
 }
 
 button.yes:hover {
@@ -242,6 +284,7 @@ button.no:hover {
     display: grid;
     grid-template-areas: "text button1 button2";
     grid-template-columns: 60% 20% 20%;
+    color: black;
 }
 
 #options .option span {
