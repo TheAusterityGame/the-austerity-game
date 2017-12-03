@@ -17,8 +17,21 @@ function getTweetData() {
 }
 
 function isTweetOk(tweet) {
-    
-    return true;
+    var department = tweet.department;    
+    if (department == undefined) { // generic tweet
+        var popularity = totalPopularity;
+    } else {        
+        var popularity = nameToDepartment[department].popularity;
+    }
+    var popular = (popularity > 50);   
+    if (popular == tweet.complaint) { // mood mismatch
+        return false;
+    }
+    if (popular) {
+        return (Math.random() * 100 < popularity); // the more it's popular, the more it's OK
+    } else {
+        return (Math.random() * 100 > popularity); // the less it's popular, the more it's OK
+    }
 }
 
 function tweetLoop() {

@@ -5,8 +5,9 @@ const INITIAL_CONSENSUS = 70;
 const MIN_CONSENSUS = 20; // below this, the players are toppled
 
 
+var totalSpending = 0;
+var totalPopularity = 0;
 var funding = INITIAL_EXTRA_FUNDING;
-
 var duration = 0;
 
 // all the questions, loaded from the spreadsheet in database.js
@@ -93,8 +94,6 @@ document.addEventListener('QUESTIONS LOADED', function(event)
 })
 
 function gameLoop() {
-  var totalSpending = 0;
-  var totalPopularity = 0;
   for (var i = 0; i < departments.length; i++) {
     var department = departments[i];
     $(department.bar).css('height', department.spending + '%');
@@ -134,5 +133,10 @@ document.addEventListener('PAGE DISPLAYED', function(event) {
     $('.chart_bar_icon.template').remove();
     
     var gameLoopId = setInterval(gameLoop, GAME_PERIOD);
+    document.addEventListener('PAGE DISPLAYED', function(event) {
+      if (event.detail != 2) {
+          clearInterval(gameLoopId);
+      }
+  });
   }
 });
