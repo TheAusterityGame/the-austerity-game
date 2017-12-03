@@ -186,6 +186,6 @@ document.addEventListener('PAGE DISPLAYED', function(event) {
       }
     });
 
-    publishBreakingNews("PM demands strong austerity measures to be implemented in Austerityville.");
+    publishBreakingNews("PM demands strong austerity measures to be implemented in Austerington.");
   }
 });
