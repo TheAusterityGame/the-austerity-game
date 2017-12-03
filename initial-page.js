@@ -1,9 +1,11 @@
 document.addEventListener('PAGE DISPLAYED', function(event) {
     if (event.detail == 1) {        
+        $('input.proceed').hide();
         $('input.proceed').click(function () {            
             moveToPage(2);
         });
         $('input[name="players_count"]').change(function () {
+            $('input.proceed').show();
             var playersCount = $(this).val();
             var politiciansList = $('.politicians .which');
             politiciansList.empty();

@@ -42,7 +42,7 @@ document.addEventListener('PAGE DISPLAYED', function(event) {
 
 function fillPoliticianData(selector, politician) {
     var element = $(selector);
-    element.find('img.portrait').attr('src', politicians.portrait);
+    element.find('img.portrait').attr('src', politician.portrait);
     element.find('.title').html(titleFromGender(politician.gender));
     element.find('.first-name').html(politician.firstName);
     element.find('.last-name').html(politician.lastName);
