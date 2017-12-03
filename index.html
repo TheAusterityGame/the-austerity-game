@@ -3,7 +3,8 @@
 <head>
     <link href="https://fonts.googleapis.com/css?family=Numans" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="index.css" />    
-    <link rel="stylesheet" type="text/css" href="initial-page.css" />
+    <link rel="stylesheet" type="text/css" href="initial-page.css" />    
+    <link rel="stylesheet" type="text/css" href="final-page.css" />
     <title>The Austerity Game</title>
     <meta name="description" content="The Austerity Game" />
     <script src="lib/jquery.js"></script>
@@ -124,14 +125,67 @@
             </div>
         </div>
     </div>
-    <div class="page" id="page_3">
-        PAGE 3
-    </div>
+    <div class="page two-halves" id="page_3">        
+        <div id="main" class="outcome">
+            <h1>You lasted <span class="duration">100</span> days</h1>
+            <div class="removed-from-above">
+                <img src="https://dummyimage.com/500x200/000000/fff.png&text=LOSERS">
+                The Tory Prime Minister is very unsatisfied with your performance:
+                you did not cut your local budget quick enough!<br>
+                The fundings from the central government are falling faster
+                than you seem prepared to cut public services.<br>
+                A special commissioner is sent to take charge. You are out of office.
+            </div>
+            <div class="removed-from-below">
+                <img src="https://dummyimage.com/500x200/000000/fff.png&text=REVOLUTION">
+                The population is fed up with your austerity policies!<br>
+                Popular protests have become massive. You cannot carry on like this.<br>
+                You are kicked out of office by an angry mob. Good riddance!                
+            </div>
+            <input type="button" class="proceed" value="Restart">
+        </div>
+        <div id="side">
+            <div class="removed-from-above">
+                <div class="politician">
+                    <h2>You all suck!</h2>
+                    Your administration was such a disappointment for the Conservative Prime Minister!<br>
+                    You are not supposed to hinder the sacred implementation austerity for the sake of popularity.<br>
+                    All your political careers end in Austerityville, for good.
+                </div>
+                You should try again and check that the state funding never goes below your local budget.
+            </div>
+            <div class="best politician removed-from-below">
+                <h2><span class="first-name">Mauro</span> survived!</h2>
+                <img src="https://dummyimage.com/40x60/000000/fff.png&text=..." class="portrait">
+                The <b>best politician</b> in this local administration was
+                <b><span class="title">Sir</span> <span class="first-name">Mauro</span>
+                <span class="last-name">McTory</span></b>,
+                in charge of <b><span class="department">Healthcare</span></b>.<br>
+                By owning a <span class="vested-interest">a private bus company</span>,
+                <span class="first-name">Mauro</span> made <b>£<span class="lucre">100</span> million</b>
+                thanks to budget cuts in <b><span class="vested-interest-department">Transport</span></b>.<br>
+                Since <span class="first-name">Mauro</span> has proved clever
+                and is still relatively popular (<b><span class="popularity">60</span></b>% appreciation),
+                the PM has promised this politician a career as a Tory MP.
+            </div>
+            <div class="worst politician removed-from-below">
+                <h2><span class="first-name">Mauro</span> sucked!</h2>
+                <img src="https://dummyimage.com/40x60/000000/fff.png&text=..." class="portrait">
+                The worst politician in this local administration was
+                <b><span class="title">Sir</span> <span class="first-name">Mauro</span>
+                <span class="last-name">McTory</span></b>.<br>
+                By being in charge of <b><span class="department">Healthcare</span></b> whose budget was so severly cut,
+                <span class="first-name">Mauro</span> managed to become very unpopular 
+                (<b><span class="popularity">60</span></b>% appreciation).<br>
+                The political career of this despised individual ends in Austerityville, for good.
+            </div>
+        </div>
     <script src="database.js"></script>
     <script src="index.js"></script>    
     <script src="tweets.js"></script>
     <script src="game.js"></script>
-    <script src="initial-page.js"></script>
-    <script src="boot.js"></script>    
+    <script src="initial-page.js"></script>    
+    <script src="final-page.js"></script>
+    <script src="boot.js"></script><!-- Must be put last -->    
 </body>
 </html>

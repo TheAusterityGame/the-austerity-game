@@ -111,6 +111,19 @@ function gameLoop() {
   $('#score .duration').html(duration);
   $('#score .consensus').html(parseInt(totalPopularity));
   $('#score').fadeIn();
+  if (outcome() != "clinging-to-power") {
+    moveToPage(3);
+  }
+}
+
+function outcome() {
+  if (totalSpending > funding) {
+    return "removed-from-above";
+  }
+  if (totalPopularity < MIN_CONSENSUS) {
+    return "removed-from-below";
+  }
+  return "clinging-to-power";
 }
 
 document.addEventListener('PAGE DISPLAYED', function(event) {

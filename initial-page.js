@@ -17,7 +17,7 @@ document.addEventListener('PAGE DISPLAYED', function(event) {
                     vestedInterest: generateVestedInterest(i)
                 };
                 var politician = $('.politician.template').clone();
-                politician.find('.title').html($$.politicians[i].gender == 'M' ? 'Sir' : 'Madam');
+                politician.find('.title').html(titleFromGender($$.politicians[i].gender));
                 politician.find('.last-name').html($$.politicians[i].lastName);
                 politician.find('.department').html($$.politicians[i].department.name);
                 politician.find('.vested-interest').html($$.politicians[i].vestedInterest.vestedInterest);
@@ -40,6 +40,10 @@ document.addEventListener('PAGE DISPLAYED', function(event) {
         });        
     }
 });
+
+function titleFromGender(gender) {
+    return gender == 'M' ? 'Sir' : 'Madam';
+}
 
 function generateGender(index) {
     var female = Math.random() < (70 / 331); // actual ratio of female to male Tory MPs
