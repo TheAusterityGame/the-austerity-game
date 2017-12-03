@@ -117,7 +117,7 @@ b {
 }
 .politician:last-child
 {
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 .politician.template {
@@ -273,7 +273,8 @@ button, input[type=button]
 .proceed
 {
   width: 100% !important;
-  margin: 20px 0 10px;
+  /*margin: 20px 0 10px;*/
+  height: 100px;
 }
 
 button.yes:hover {

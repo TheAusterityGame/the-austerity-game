@@ -1212,6 +1212,7 @@ input[type="tel"]:focus,
 input[type="color"]:focus,
 .uneditable-input:focus {
   outline: 0;
+  box-shadow: 0px 2px 0px black;
 }
 
 input[type="radio"],
@@ -3215,18 +3216,15 @@ button.close {
 }
 
 .btn:hover,
-.btn:focus {
+.btn:focus,
+.btn:focus
+{
   color: #ffffff;
   text-decoration: none;
   background: #555555;
   outline: 0;
 }
 
-.btn:focus {
-  outline: thin solid #333;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
 
 .btn.active,
 .btn:active {
