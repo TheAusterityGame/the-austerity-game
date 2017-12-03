@@ -1,5 +1,5 @@
-const GAME_PERIOD = 2000; // 2 seconds
-const INITIAL_EXTRA_FUNDING = 100; // + the initial spending = initial funding
+const GAME_PERIOD = 1000; // 2 seconds
+const INITIAL_EXTRA_FUNDING = 50; // + the initial spending = initial funding
 const FUNDING_LOSS_PER_GAME_PERIOD = 1;
 const FUNDING_WARNING = 20 // when the total spending is close to the funding quota
 const INITIAL_CONSENSUS = 70;
