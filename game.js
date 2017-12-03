@@ -135,7 +135,7 @@ document.addEventListener('PAGE DISPLAYED', function(event) {
     for (var i = 0; i < departments.length; i++) {
       var department = departments[i];
       department.popularity = INITIAL_CONSENSUS;
-      department.spending = 100;
+      department.spending = 85 + Math.floor(Math.random() * 15);
       funding += department.spending;
       nameToDepartment[department.name] = department;
       
