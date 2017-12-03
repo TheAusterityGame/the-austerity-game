@@ -82,3 +82,12 @@ function generateVestedInterest(index) {
     return pickRandomlyFrom(departments);
 }
 
+function politicianInChargeOf(departmentName) {
+    for (var i = 0; i < $$.politicians.length; i++) {
+        var politician = $$.politicians[i];
+        if (departmentName == politician.department.name) {
+            return politician.firstName + ' ' + politician.lastName;
+        }
+    }
+    return "the head of " + departmentName + " Department";
+}
