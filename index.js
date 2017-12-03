@@ -9,7 +9,7 @@ const state = {
 
 }
 
-function time ()
+function getTime ()
 {
   const d = new Date()
   let s = d.getSeconds()
@@ -18,14 +18,17 @@ function time ()
   if (String(m).length === 1) m = `0${m}`
   let h = d.getHours()
   if (String(h).length === 1) h = `0${h}`
+  let randomMinutes = Math.floor(Math.random()*60)
+  if (String(randomMinutes).length === 1) randomMinutes = `0${randomMinutes}`
   return {
     hhmmss: `${h}:${m}:${s}`,
-    hhmm: `${h}:${m}`
+    hhmm: `${h}:${m}`,
+    randomised: `${h}:${randomMinutes}`
   }
 }
 
 function tick () {
-  $$.clock.innerText = time().hhmmss;
+  $$.clock.innerText = getTime().hhmmss;
   requestAnimationFrame(tick);
 }
 
