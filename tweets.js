@@ -21,7 +21,7 @@ function isTweetOk(tweet) {
     return true;
 }
 
-function tweet() {
+function tweetLoop() {
     var newTweet = $('#side .tweet:first-child').clone();
     var tweetData = getTweetData();
     newTweet.find('.datetime').html(time().hhmm);
@@ -38,7 +38,12 @@ document.addEventListener('TWEETS LOADED', function(event)
 {
     tweets = event.detail;
     tweets.shuffle();
-    var tweetLoopId = setInterval(tweet, TWEET_PERIOD);
+    var tweetLoopId = setInterval(tweetLoop, TWEET_PERIOD);
+    document.addEventListener('PAGE DISPLAYED', function(event) {
+        if (event.detail != 2) {
+            clearInterval(tweetLoopId);
+        }
+    });
 });
 
 document.addEventListener('PAGE DISPLAYED', function(event) {

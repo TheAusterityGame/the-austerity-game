@@ -71,10 +71,10 @@ function generateLastName(index) {
 }
 
 function generateDepartment(index) {
-    return DEPARTMENTS[index];
+    return departments[index];
 }
 
 function generateVestedInterest(index) {
-    return pickRandomlyFrom(DEPARTMENTS);
+    return pickRandomlyFrom(departments);
 }
 

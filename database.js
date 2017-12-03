@@ -1,5 +1,7 @@
 var questionsUrl = 'https://api.airtable.com/v0/appUhYpS5VrTEb9Nm/Questions?api_key=keyvcbzivvvtnmex2';
 var tweetsUrl = 'https://api.airtable.com/v0/appUhYpS5VrTEb9Nm/Tweets?api_key=keyvcbzivvvtnmex2';
+var departmentsUrl = 'https://api.airtable.com/v0/appUhYpS5VrTEb9Nm/Departments?api_key=keyvcbzivvvtnmex2';
+
 function loadData (url, which, parser)
 {
 	$.ajax(
@@ -81,6 +83,19 @@ function parseTweet(data)
   }
 
   return tweet;
+}
+
+function parseDepartment(data)
+{
+  var department =
+  {
+    id: data.id,
+    name: data.fields.name,
+    vestedInterest: data.fields['vested interest'],
+    abbreviation: data.fields.abbreviation
+  }
+
+  return department;
 }
 
 // https://stackoverflow.com/a/10142256/2928562

@@ -1,16 +1,13 @@
+const GAME_PERIOD = 2000; // 2 seconds
+const INITIAL_EXTRA_FUNDING = 100; // + the initial spending = initial funding
+
+var funding = INITIAL_EXTRA_FUNDING;
+
 // all the questions, loaded from the spreadsheet in database.js
 var questions = null,
     questionsCount = 0
 
-// very temporary
-var departments = {};
-
-for (var i = 0; i < DEPARTMENTS.length; i++) {
-  departments[DEPARTMENTS[i].name] = {
-    popularity: 100,
-    spending: 80
-  };
-}
+var nameToDepartment = {};
 
 function pickRandomQuestion()
 {
@@ -63,11 +60,14 @@ function updateDepartmentImpacts(question)
   // update the departments
   for(var i=0; i<question.impacts.length; i++)
   {
-    var impact = question.impacts[i];
-    var department = departments[impact.department];
-    department.popularity += impact.popularity;
-    department.spending += impact.spending;
-    
+    var impact = question.impacts[i];    
+    if (impact.department in nameToDepartment) {
+      var department = nameToDepartment[impact.department];
+      department.popularity += impact.popularity;    
+      department.spending += impact.spending;
+    } else {      
+      console.error(impact.department + " does NOT exist");
+    }    
   }
 }
 
@@ -86,8 +86,38 @@ document.addEventListener('QUESTIONS LOADED', function(event)
   }
 })
 
+function gameLoop() {
+  var totalSpending = 0;
+  for (var i = 0; i < departments.length; i++) {
+    var department = departments[i];
+    $(department.bar).css('height', department.spending + '%');
+    totalSpending += department.spending;
+  }
+  $('#status .budget').html(totalSpending);
+  $('#status .funding').html(funding);
+  $('#status').fadeIn();
+}
+
 document.addEventListener('PAGE DISPLAYED', function(event) {
   if (event.detail == 2) {
+    $('#status').hide();
     loadData(questionsUrl, 'QUESTIONS', parseQuestion);
+    
+    for (var i = 0; i < departments.length; i++) {
+      var department = departments[i];
+      department.popularity = 100;
+      department.spending = 100;
+      funding += department.spending;
+      nameToDepartment[department.name] = department;
+      
+      department.bar = $('.chart_bar.template').clone().appendTo('#chart').removeClass('template')
+        .data('department', department.name);      
+      $('.chart_bar_icon.template').clone().appendTo('#chart_x').removeClass('template')
+        .find('.abbreviation').html(department.abbreviation);
+    }
+    $('.chart_bar.template').remove();
+    $('.chart_bar_icon.template').remove();
+    
+    var gameLoopId = setInterval(gameLoop, GAME_PERIOD);
   }
 });

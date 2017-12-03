@@ -27,9 +27,10 @@ html, body, input[type=text] {
     width: 100%;
     height: 100%;
     display: none;
-    grid-template-rows: 1fr 1fr 1fr 1fr 100px;
+    grid-template-rows: 100px 1fr 1fr 1fr 1fr 100px;
     grid-template-columns: 1fr 1fr 0.5fr;
-    grid-template-areas: "main main side"
+    grid-template-areas: "status status side"
+                         "main main side"
                          "main main side"
                          "main main side"
                          "bar bar side"
@@ -38,6 +39,14 @@ html, body, input[type=text] {
 
 .page.active {
     display: grid;
+}
+
+/*** STATUS ***/
+
+#status {
+    padding: 10px;
+    font-size: larger;
+    text-align: center;
 }
 
 /*** MAIN ***/
@@ -66,36 +75,22 @@ html, body, input[type=text] {
     margin-right: 10px;
     flex-grow: 1;
     transition: height 0.5s ease;
+    height: 0%;
 }
 
-.chart_bar:nth-child(1) {
-    background-color: red;
+.chart_bar:nth-child(4n+1) {
+    background-color: red;    
 }
 
-.chart_bar:nth-child(2) {
+.chart_bar:nth-child(4n+2) {
     background-color: green;
 }
 
-.chart_bar:nth-child(3) {
+.chart_bar:nth-child(4n+3) {
     background-color: blue;
 }
 
-.chart_bar:nth-child(4) {
-    background-color: orange;
-}
-.chart_bar:nth-child(5) {
-    background-color: red;
-}
-
-.chart_bar:nth-child(6) {
-    background-color: green;
-}
-
-.chart_bar:nth-child(7) {
-    background-color: blue;
-}
-
-.chart_bar:nth-child(8) {
+.chart_bar:nth-child(4n+4) {
     background-color: orange;
 }
 

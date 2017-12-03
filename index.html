@@ -57,67 +57,20 @@
 
     <!-- ====================== PAGE 2 ====================== -->
     <div class="page" id="page_2">
+        <div id="status">
+            Local budget: <b>£<span class="budget">...</span>K</b><br>
+            State funding: <b>£<span class="funding">...</span>K</b><br>
+        </div>
         <div id="main">
             <div id="chart" class="chart_grid">
-
-                <div class="chart_bar">
+                <div class="chart_bar template">
                     <span class="up_arrow"></span>
                     <span class="down_arrow"></span>
                 </div>
-                <div class="chart_bar">
-                    <span class="up_arrow"></span>
-                    <span class="down_arrow"></span>
-                </div>
-                <div class="chart_bar">
-                    <span class="up_arrow"></span>
-                    <span class="down_arrow"></span>
-                </div>
-                <div class="chart_bar">
-                    <span class="up_arrow"></span>
-                    <span class="down_arrow"></span>
-                </div>
-                <div class="chart_bar">
-                    <span class="up_arrow"></span>
-                    <span class="down_arrow"></span>
-                </div>
-                <div class="chart_bar">
-                    <span class="up_arrow"></span>
-                    <span class="down_arrow"></span>
-                </div>
-                <div class="chart_bar">
-                    <span class="up_arrow"></span>
-                    <span class="down_arrow"></span>
-                </div>
-                <div class="chart_bar">
-                    <span class="up_arrow"></span>
-                    <span class="down_arrow"></span>
-                </div>
-
             </div>
             <div id="chart_x" class="chart_grid">
-                <div class="chart_bar_icon">
-                    <span>1</span>
-                </div>
-                <div class="chart_bar_icon">
-                    <span>2</span>
-                </div>
-                <div class="chart_bar_icon">
-                    <span>3</span>
-                </div>
-                <div class="chart_bar_icon">
-                    <span>4</span>
-                </div>
-                <div class="chart_bar_icon">
-                    <span>5</span>
-                </div>
-                <div class="chart_bar_icon">
-                    <span>6</span>
-                </div>
-                <div class="chart_bar_icon">
-                    <span>7</span>
-                </div>
-                <div class="chart_bar_icon">
-                    <span>8</span>
+                <div class="chart_bar_icon template">
+                    <span class="abbreviation">Xxx</span>
                 </div>
             </div>
         </div>
@@ -175,11 +128,6 @@
     <script src="tweets.js"></script>
     <script src="game.js"></script>
     <script src="initial-page.js"></script>
-    <script>
-        $(document).ready(function() { 
-            moveToPage(1);
-        });
-    </script>
-    
+    <script src="boot.js"></script>    
 </body>
 </html>
