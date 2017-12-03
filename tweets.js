@@ -1,4 +1,4 @@
-const TWEET_PERIOD = 2000 // milliseconds
+const TWEET_PERIOD = 10000 // milliseconds
 const TWEET_FRESHNESS_FACTOR = 5 // check some random tweets each time and get the least displayed one
 var tweets = null
 
