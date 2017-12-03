@@ -1,6 +1,7 @@
 const GAME_PERIOD = 2000; // 2 seconds
 const INITIAL_EXTRA_FUNDING = 100; // + the initial spending = initial funding
 const FUNDING_LOSS_PER_GAME_PERIOD = 1;
+const FUNDING_WARNING = 20 // when the total spending is close to the funding quota
 const INITIAL_CONSENSUS = 70;
 const MIN_CONSENSUS = 20; // below this, the players are toppled
 
@@ -14,7 +15,7 @@ var duration = 0;
 var questions = null,
     questionsCount = 0
 
-// govt. departments 
+// govt. departments
 var departments = [],
     nameToDepartment = {}
 
@@ -75,7 +76,7 @@ function updateDepartmentImpacts(question)
       department.popularity += impact.popularity;
       department.spending += impact.spending;
 
-      if (i == 0) { // only the first effect  
+      if (i == 0) { // only the first effect
         var breakingNews = duration + " days since the new local council swore in. ";
         if (impact.spending < -15) {
           breakingNews = "Huge budget cut on " + department.name + " spending. ";
@@ -93,8 +94,9 @@ function updateDepartmentImpacts(question)
         }
         publishBreakingNews(breakingNews);
       }
-
-    } else {
+    }
+    else
+    {
       console.error(impact.department + " does NOT exist");
     }
   }
@@ -126,6 +128,14 @@ function gameLoop() {
   }
   duration += 1;
   funding -= FUNDING_LOSS_PER_GAME_PERIOD;
+  if (funding - totalSpending < FUNDING_WARNING)
+  {
+    document.dispatchEvent(new CustomEvent('FUNDING WARNING'))
+    $('#status .funding').addClass('warning')
+  }
+  else {
+    $('#status .funding').removeClass('warning')
+  }
   totalPopularity /= departments.length;
   $('#status .budget').html(totalSpending);
   $('#status .funding').html(funding);

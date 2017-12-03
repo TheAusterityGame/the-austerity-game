@@ -12,7 +12,7 @@
 <body>
 
     <!-- ====================== PAGE 1 ====================== -->
-    <div class="page two-halves" id="page_1">
+    <section class="page two-halves" id="page_1">
         <div id="setup">
             <div class="explanation">
                 You, local leaders of the Conservative Party, just won the elections in Austerityville.<br>
@@ -55,10 +55,10 @@
                 <li>No majority (<b>including ties</b>) = no click.</li>
             </ul>
         </div>
-    </div>
+    </section>
 
     <!-- ====================== PAGE 2 ====================== -->
-    <div class="page" id="page_2">
+    <section class="page" id="page_2">
         <div id="status">
             Local budget: <b>&#163;<span class="budget">...</span>K</b><br>
             State funding: <b>&#163;<span class="funding">...</span>K</b><br>
@@ -101,8 +101,10 @@
                 <p class="content">+++ <b>#Austerityville</b> has a new administration. +++</p>
             </div>
         </div>
-    </div>
-    <div class="page two-halves" id="page_3">
+    </section>
+
+    <!-- ====================== PAGE 3 ====================== -->
+    <section class="page two-halves" id="page_3">
         <div id="main" class="outcome">
             <h1>You lasted <span class="duration">100</span> days</h1>
             <div class="removed-from-above">
@@ -156,8 +158,55 @@
                 (<b><span class="popularity">60</span></b>% appreciation).<br>
                 The political career of this despised individual ends in Austerityville, for good.
             </div>
-        </div>
+        </section>
+
     <script src="database.js"></script>
+
+    <!-- ====================== SOUND ====================== -->
+    <audio id="news-theme">
+      <source src="audio/news-theme-shorter.mp3" type="audio/mpeg">
+        <!-- played on load -->
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="alarm">
+      <source src="audio/alarm.mp3" type="audio/mpeg">
+      <!-- played when the barcharts go down -->
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="pop-01">
+      <source src="audio/pop-01.mp3" type="audio/mpeg">
+      <!-- played on tweets -->
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="pop-02">
+      <source src="audio/pop-02.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="pop-03">
+      <source src="audio/pop-03.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="pop-04">
+      <source src="audio/pop-04.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="pop-05">
+      <source src="audio/pop-05.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="pop-06">
+      <source src="audio/pop-06.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <audio id="you-lose">
+      <source src="audio/you-lose.mp3" type="audio/mpeg">
+      <!-- played on the game over screen -->
+      Your browser does not support the audio element.
+    </audio>
+
+
+    <!-- ====================== JS ====================== -->
+    <script src="sound.js"></script>
     <script src="index.js"></script>
     <script src="tweets.js"></script>
     <script src="game.js"></script>
