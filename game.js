@@ -74,6 +74,26 @@ function updateDepartmentImpacts(question)
       var department = nameToDepartment[impact.department];
       department.popularity += impact.popularity;
       department.spending += impact.spending;
+
+      if (i == 0) { // only the first effect  
+        var breakingNews = "";
+        if (impact.spending < -15) {
+          breakingNews = "Huge budget cut on " + department.name + " spending. ";
+        } if (impact.spending < 0) {
+          breakingNews = "Local budget for " + department.name + " was cut. ";
+        } else if (impact.spending > 0) {
+          breakingNews = "Extra budget allocated for " + department.name + ". ";
+        }
+        if (impact.popularity < -15) {
+          breakingNews += "Large protests reported against " + politicianInChargeOf(department.name) + ".";
+        } else if (impact.popularity < 0) {
+          breakingNews += "Public opinion turns against " + politicianInChargeOf(department.name) + ".";
+        } else {
+          breakingNews += "Public opinion is supportive.";
+        }
+        publishBreakingNews(breakingNews);
+      }
+
     } else {
       console.error(impact.department + " does NOT exist");
     }
@@ -137,7 +157,7 @@ document.addEventListener('PAGE DISPLAYED', function(event) {
     for (var i = 0; i < departments.length; i++) {
       var department = departments[i];
       department.popularity = INITIAL_CONSENSUS;
-      department.spending = 100;
+      department.spending = 85 + Math.floor(Math.random() * 15);
       funding += department.spending;
       nameToDepartment[department.name] = department;
 
@@ -154,6 +174,8 @@ document.addEventListener('PAGE DISPLAYED', function(event) {
       if (event.detail != 2) {
           clearInterval(gameLoopId);
       }
-  });
+    });
+
+    publishBreakingNews("PM demands strong austerity measures to be implemented in Austerityville.");
   }
 });

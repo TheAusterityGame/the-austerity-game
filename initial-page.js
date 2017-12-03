@@ -11,12 +11,14 @@ document.addEventListener('PAGE DISPLAYED', function(event) {
             for (var i = 0; i < playersCount; i++) {
                 $$.politicians[i] = {
                     gender: generateGender(i),
-                    firstName: "",
+                    firstName: "",                    
                     lastName: generateLastName(i),
                     department: generateDepartment(i),
-                    vestedInterest: generateVestedInterest(i)
+                    vestedInterest: generateVestedInterest(i),
+                    portrait: 'img/portrait_' + i + '.PNG'
                 };
                 var politician = $('.politician.template').clone();
+                politician.find('img.portrait').attr('src', $$.politicians[i].portrait);
                 politician.find('.title').html(titleFromGender($$.politicians[i].gender));
                 politician.find('.last-name').html($$.politicians[i].lastName);
                 politician.find('.department').html($$.politicians[i].department.name);
@@ -82,3 +84,12 @@ function generateVestedInterest(index) {
     return pickRandomlyFrom(departments);
 }
 
+function politicianInChargeOf(departmentName) {
+    for (var i = 0; i < $$.politicians.length; i++) {
+        var politician = $$.politicians[i];
+        if (departmentName == politician.department.name) {
+            return politician.firstName + ' ' + politician.lastName;
+        }
+    }
+    return "the head of " + departmentName + " Department";
+}
