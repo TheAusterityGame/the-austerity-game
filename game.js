@@ -14,7 +14,9 @@ var duration = 0;
 var questions = null,
     questionsCount = 0
 
-var nameToDepartment = {};
+// govt. departments 
+var departments = [],
+    nameToDepartment = {}
 
 function pickRandomQuestion()
 {
@@ -67,14 +69,14 @@ function updateDepartmentImpacts(question)
   // update the departments
   for(var i=0; i<question.impacts.length; i++)
   {
-    var impact = question.impacts[i];    
+    var impact = question.impacts[i];
     if (impact.department in nameToDepartment) {
       var department = nameToDepartment[impact.department];
-      department.popularity += impact.popularity;    
+      department.popularity += impact.popularity;
       department.spending += impact.spending;
-    } else {      
+    } else {
       console.error(impact.department + " does NOT exist");
-    }    
+    }
   }
 }
 
@@ -100,8 +102,8 @@ function gameLoop() {
     var department = departments[i];
     $(department.bar).css('height', department.spending + '%');
     totalSpending += department.spending;
-    totalPopularity += department.popularity;    
-  }  
+    totalPopularity += department.popularity;
+  }
   duration += 1;
   funding -= FUNDING_LOSS_PER_GAME_PERIOD;
   totalPopularity /= departments.length;
@@ -131,22 +133,22 @@ document.addEventListener('PAGE DISPLAYED', function(event) {
     $('#status').hide();
     $('#score').hide();
     loadData(questionsUrl, 'QUESTIONS', parseQuestion);
-    
+
     for (var i = 0; i < departments.length; i++) {
       var department = departments[i];
       department.popularity = INITIAL_CONSENSUS;
       department.spending = 85 + Math.floor(Math.random() * 15);
       funding += department.spending;
       nameToDepartment[department.name] = department;
-      
+
       department.bar = $('.chart_bar.template').clone().appendTo('#chart').removeClass('template')
-        .data('department', department.name);      
+        .data('department', department.name);
       $('.chart_bar_icon.template').clone().appendTo('#chart_x').removeClass('template')
         .find('.abbreviation').html(department.abbreviation);
     }
     $('.chart_bar.template').remove();
     $('.chart_bar_icon.template').remove();
-    
+
     var gameLoopId = setInterval(gameLoop, GAME_PERIOD);
     document.addEventListener('PAGE DISPLAYED', function(event) {
       if (event.detail != 2) {

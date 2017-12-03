@@ -9,18 +9,19 @@ const state = {
 
 }
 
-var departments = [];
-
-function time () {
+function time ()
+{
   const d = new Date()
   let s = d.getSeconds()
-  if (String(s).length === 1) {
-    s = `0${s}`
-  }  
+  if (String(s).length === 1) s = `0${s}`
+  let m = d.getMinutes()
+  if (String(m).length === 1) m = `0${m}`
+  let h = d.getHours()
+  if (String(h).length === 1) h = `0${h}`
   return {
-    hhmmss: `${d.getHours()}:${d.getMinutes()}:${s}`,
-    hhmm: `${d.getHours()}:${d.getMinutes()}`
-  };
+    hhmmss: `${h}:${m}:${s}`,
+    hhmm: `${h}:${m}`
+  }
 }
 
 function tick () {
