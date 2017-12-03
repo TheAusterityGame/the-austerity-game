@@ -171,6 +171,21 @@ input.first-name
     background-color: white;
 }
 
+.chart_bar.green
+{
+  background-color: green;
+}
+
+.chart_bar.yellow
+{
+  background-color: yellow;
+}
+
+.chart_bar.red
+{
+  background-color: red;
+}
+
 /*.chart_bar:nth-child(4n+1) {
     background-color: #902525;
 }

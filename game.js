@@ -122,7 +122,12 @@ function gameLoop() {
   totalPopularity = 0;
   for (var i = 0; i < departments.length; i++) {
     var department = departments[i];
-    $(department.bar).css('height', department.spending + '%');
+    var $department = $(department.bar)
+    $department.css('height', department.spending + '%');
+    $department.removeClass('green yellow red')
+    if (department.spending < 67) $department.addClass('green')
+    if (department.spending < 83) $department.addClass('yellow')
+    if (department.spending >= 83) $department.addClass('red')
     totalSpending += department.spending;
     totalPopularity += department.popularity;
   }
