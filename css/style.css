@@ -16,11 +16,7 @@ html, body {
     /*background-color: white;*/
     width: 100%;
     height: 100%;
-}
-
-html, body, input[type=text], input[type=button], button.yes, button.no {
-    /*font-size: 24px;*/
-    /*font-family: 'Numans', sans-serif;*/
+    background: #222;
 }
 
 .panel
@@ -167,10 +163,11 @@ input.first-name
     flex-grow: 1;
     transition: height 0.5s ease;
     height: 0%;
+    background-color: white;
 }
 
-.chart_bar:nth-child(4n+1) {
-    background-color: red;
+/*.chart_bar:nth-child(4n+1) {
+    background-color: #902525;
 }
 
 .chart_bar:nth-child(4n+2) {
@@ -183,7 +180,7 @@ input.first-name
 
 .chart_bar:nth-child(4n+4) {
     background-color: orange;
-}
+}*/
 
 #chart_x {
     background-color: var(--darkgrey);
