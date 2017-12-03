@@ -58,6 +58,9 @@ function tweetLoop()
     var tweet = getTweet(),
         department = tweet.department
 
+    // protection against empty tweets
+    if (!tweet.content) return false
+
     $tweet.find('.datetime').html(getTime().randomised)
     $tweet.find('.username').html('@' + tweet.username)
 
@@ -66,9 +69,11 @@ function tweetLoop()
     var politicianCatcher = /({{politician}})+/gim // regular expression
     // eg: "Everyone needs to know what {{politician}} is doing. Welfare negligence has gone too far"
     var tweetContent = tweet.content.replace(politicianCatcher, replaceWith)
-
     $tweet.find('.content').html(tweetContent)
+
     $tweet.prependTo('#side')
+    document.dispatchEvent(new CustomEvent('TWEETED', {detail: tweetContent} ))
+
     setTimeout(function() {
         $tweet.remove()
     }, TWEET_PERIOD * 10)
