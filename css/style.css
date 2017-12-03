@@ -23,6 +23,11 @@ html, body, input[type=text], input[type=button], button.yes, button.no {
     /*font-family: 'Numans', sans-serif;*/
 }
 
+
+b {
+    background-color: #fff3;
+}
+
 .panel
 {
   display: block;
