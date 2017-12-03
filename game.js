@@ -94,6 +94,8 @@ document.addEventListener('QUESTIONS LOADED', function(event)
 })
 
 function gameLoop() {
+  totalSpending = 0;
+  totalPopularity = 0;
   for (var i = 0; i < departments.length; i++) {
     var department = departments[i];
     $(department.bar).css('height', department.spending + '%');
