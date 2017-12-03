@@ -126,7 +126,7 @@ function gameLoop() {
     $department.css('height', department.spending + '%');
     $department.removeClass('green yellow red')
     if (department.spending < 67) $department.addClass('green')
-    if (department.spending < 83) $department.addClass('yellow')
+    if (department.spending >= 67 && department.spending < 83) $department.addClass('yellow')
     if (department.spending >= 83) $department.addClass('red')
     totalSpending += department.spending;
     totalPopularity += department.popularity;
