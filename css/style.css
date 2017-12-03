@@ -237,7 +237,7 @@ input.first-name
 
 #side .tweet {
     width: 100%;
-    background-color: var(--blue1);
+    background-color: darkblue;
     min-height: 50px;
     margin-bottom: 15px;
     padding: 10px;
@@ -254,7 +254,7 @@ input.first-name
 }
 
 #side .tweet .username {
-    color: black;
+    color: lightblue;
     text-decoration: underline;
 }
 
