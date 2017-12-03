@@ -61,10 +61,11 @@ function tweetLoop()
     $tweet.find('.datetime').html(getTime().randomised)
     $tweet.find('.username').html('@' + tweet.username)
 
+    var replaceWith = (department) ? politicianInChargeOf(department) : 'Council'
     // check if the tweet contains placeholders
     var politicianCatcher = /({{politician}})+/gim // regular expression
     // eg: "Everyone needs to know what {{politician}} is doing. Welfare negligence has gone too far"
-    var tweetContent = tweet.content.replace(politicianCatcher, politicianInChargeOf(department))
+    var tweetContent = tweet.content.replace(politicianCatcher, replaceWith)
 
     $tweet.find('.content').html(tweetContent)
     $tweet.prependTo('#side')
