@@ -33,12 +33,17 @@ function tweet() {
     }, TWEET_PERIOD * 10);
 }
 
-$('#side .tweet .datetime').html(time().hhmm);
-
 // when questions are loaded from the spreadsheet, display 3 random ones
 document.addEventListener('TWEETS LOADED', function(event)
 {
     tweets = event.detail;
     tweets.shuffle();
     var tweetLoopId = setInterval(tweet, TWEET_PERIOD);
+});
+
+document.addEventListener('PAGE DISPLAYED', function(event) {
+    if (event.detail == 2) {
+        $('#side .tweet .datetime').html(time().hhmm);
+        loadData(tweetsUrl, 'TWEETS', parseTweet);
+    }
 });

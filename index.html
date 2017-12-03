@@ -2,15 +2,60 @@
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Numans" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />    
+    <link rel="stylesheet" type="text/css" href="initial-page.css" />
     <title>The Austerity Game</title>
     <meta name="description" content="The Austerity Game" />
     <script src="lib/jquery.js"></script>
 </head>
 <body>
-    <div class="page" id="page_1">
-        PAGE 1
+
+    <!-- ====================== PAGE 1 ====================== -->
+    <div class="page two-halves" id="page_1">
+        <div id="setup">
+            <div class="explanation">
+                You, local leaders of the Conservative Party, just won the elections in Austerityville.<br>
+                You are given the honour and responsibility to implement austerity in Austerityville
+                through ruthless budget cuts.                
+            </div>
+            <div class="politicians">
+                <div class="how-many">
+                    How many players are you?
+                    <input type="radio" name="players_count" value="1">1</input>
+                    <input type="radio" name="players_count" value="2">2</input>
+                    <input type="radio" name="players_count" value="3">3</input>
+                    <input type="radio" name="players_count" value="4">4</input>                
+                    <input type="radio" name="players_count" value="5">5</input>                
+                    <input type="radio" name="players_count" value="6">6</input>                
+                    <input type="radio" name="players_count" value="7">7</input>
+                </div>
+                <div class="politician template">
+                    <img src="https://dummyimage.com/40x60/000000/fff.png&text=..." class="portrait">
+                    <span class="title">Sir</span> <input type="text" class="first-name" placeholder="Your First Name Here">
+                    <span class="last-name">McTory</span><br>
+                    In charge of <span class="department">Healthcare</span><br>
+                    Owner of <span class="vested-interest">a private bus company</span>
+                </div>
+                <div class="which">
+                    <div class="warning">
+                        Please select the proper number of players.
+                    </div>
+                </div>                
+                <input type="button" class="proceed" disabled value="Start">
+            </div>
+        </div>
+        <div id="rules">
+            <h1>Game rules</h1>
+            <ul>
+                <li>Each player is a local <b>Tory councillor</b> in Austerityville.</li>
+                <li>They must argue and vote on <b>where to click next</b>.</li>
+                <li><b>Only</b> when there is a <b>majority</b> in favour, a decision is taken.</li>
+                <li>No majority (<b>including ties</b>) = no click.</li>
+            </ul>
+        </div>
     </div>
+
+    <!-- ====================== PAGE 2 ====================== -->
     <div class="page" id="page_2">
         <div id="main">
             <div id="chart" class="chart_grid">
@@ -126,8 +171,15 @@
         PAGE 3
     </div>
     <script src="database.js"></script>
-    <script src="index.js"></script>
+    <script src="index.js"></script>    
     <script src="tweets.js"></script>
     <script src="game.js"></script>
+    <script src="initial-page.js"></script>
+    <script>
+        $(document).ready(function() { 
+            moveToPage(1);
+        });
+    </script>
+    
 </body>
 </html>

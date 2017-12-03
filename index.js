@@ -42,4 +42,8 @@ function pickRandomlyFrom(array) {
 
 requestAnimationFrame(tick);
 
-$$.page2.className += ' active';
+function moveToPage(pageNumber) {
+  $('.page').removeClass('active');
+  $('#page_' + pageNumber).addClass('active');
+  document.dispatchEvent(new CustomEvent('PAGE DISPLAYED', {detail: pageNumber} ))
+}

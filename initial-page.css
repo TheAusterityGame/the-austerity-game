@@ -1,7 +1,7 @@
 /*** GRID ***/
 
 .page.two-halves {
-    grid-template-rows: 1fr 100px;
+    grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "main side";
 }
@@ -35,7 +35,7 @@
     border: 1px solid blue;
     margin: 20px;
     padding: 5px;
-    height: 70px;
+    min-height: 70px;
 }
 
 .politician.template {

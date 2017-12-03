@@ -12,21 +12,6 @@ for (var i = 0; i < DEPARTMENTS.length; i++) {
   };
 }
 
-// when questions are loaded from the spreadsheet, display 3 random ones
-document.addEventListener('QUESTIONS LOADED', function(event)
-{
-  console.log('QUESTIONS LOADED')
-
-  // populate the questions array with the event's detail object
-  questions = event.detail
-
-  // display 3 random questions
-  questions.shuffle()
-  for (var slotIndex = 1; slotIndex <= 3; slotIndex++) {
-    displayQuestion(pickRandomQuestion(), 'slot_' + slotIndex);
-  }
-})
-
 function pickRandomQuestion()
 {
   var question = questions[questionsCount]
@@ -85,3 +70,24 @@ function updateDepartmentImpacts(question)
     
   }
 }
+
+// when questions are loaded from the spreadsheet, display 3 random ones
+document.addEventListener('QUESTIONS LOADED', function(event)
+{
+  console.log('QUESTIONS LOADED')
+
+  // populate the questions array with the event's detail object
+  questions = event.detail
+
+  // display 3 random questions
+  questions.shuffle()
+  for (var slotIndex = 1; slotIndex <= 3; slotIndex++) {
+    displayQuestion(pickRandomQuestion(), 'slot_' + slotIndex);
+  }
+})
+
+document.addEventListener('PAGE DISPLAYED', function(event) {
+  if (event.detail == 2) {
+    loadData(questionsUrl, 'QUESTIONS', parseQuestion);
+  }
+});

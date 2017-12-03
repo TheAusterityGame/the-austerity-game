@@ -96,7 +96,3 @@ Array.prototype.shuffle = function()
   }
   return this;
 }
-
-// execute loadData
-loadData(questionsUrl, 'QUESTIONS', parseQuestion);
-loadData(tweetsUrl, 'TWEETS', parseTweet);
