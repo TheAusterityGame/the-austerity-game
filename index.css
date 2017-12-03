@@ -18,7 +18,7 @@ html, body {
     height: 100%;
 }
 
-html, body, input[type=text] {
+html, body, input[type=text], input[type=button] {
     font-size: 24px;
     font-family: 'Numans', sans-serif;
 }
@@ -156,9 +156,22 @@ html, body, input[type=text] {
 
 /*** BAR ***/
 
-button
+button, input[type=button]
 {
   cursor: pointer;
+  border-radius: 20px;
+}
+
+.proceed {
+    min-width: 30%;
+}
+
+button.yes:hover {
+    background-color: green;
+}
+
+button.no:hover {
+    background-color: red;
 }
 
 #options {
