@@ -19,6 +19,11 @@ html, body {
     background: #222;
 }
 
+
+b {
+    background-color: #fff3;
+}
+
 .panel
 {
   display: block;
