@@ -16,8 +16,10 @@ function loadData (url, which, parser)
       // console.log(responseJSON)
       for (var i = 0; i < responseJSON.records.length; i++)
       {
-        var thing = parser(responseJSON.records[i])
-        things.push(thing)
+        var thing = parser(responseJSON.records[i]);
+        if (thing != undefined) {
+          things.push(thing);
+        }
       }
       console.log(things)
       document.dispatchEvent(new CustomEvent(which + ' LOADED', {detail: things} ))
@@ -33,6 +35,9 @@ function parseQuestion(data)
     label: data.fields.question,
     impacts: []
   }
+  if (question.label == undefined) {
+    return undefined;
+  }
 
   var fields = data.fields
 
@@ -42,7 +47,15 @@ function parseQuestion(data)
     impact.department = fields['first department'][0]
     impact.popularity = fields['first politician impact']
     impact.spending = fields['first spending impact']
-    question.impacts.push(impact)
+    if (impact.department != undefined) {
+      if (impact.popularity == undefined) {
+        impact.popularity = 0;
+      }
+      if (impact.spending == undefined) {
+        impact.spending = 0;
+      }
+      question.impacts.push(impact);
+    }    
   }
 
   if (fields['second department'])
@@ -51,7 +64,15 @@ function parseQuestion(data)
     impact.name = fields['second department'][0]
     impact.popularity = fields['second politician impact']
     impact.spending = fields['second spending impact']
-    question.impacts.push(impact)
+    if (impact.department != undefined) {
+      if (impact.popularity == undefined) {
+        impact.popularity = 0;
+      }
+      if (impact.spending == undefined) {
+        impact.spending = 0;
+      }
+      question.impacts.push(impact);
+    } 
   }
 
   if (data['third department'])
@@ -60,7 +81,15 @@ function parseQuestion(data)
     impact.name = fields['third department'][0]
     impact.popularity = fields['third politician impact']
     impact.spending = fields['third spending impact']
-    question.impacts.push(impact)
+    if (impact.department != undefined) {
+      if (impact.popularity == undefined) {
+        impact.popularity = 0;
+      }
+      if (impact.spending == undefined) {
+        impact.spending = 0;
+      }
+      question.impacts.push(impact);
+    } 
   }
 
   return question;
