@@ -9,7 +9,6 @@
 #setup {
     grid-area: main;
     margin: 25px;
-    overflow: hidden;
 }
 
 #rules {

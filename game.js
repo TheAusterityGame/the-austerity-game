@@ -77,7 +77,7 @@ function updateDepartmentImpacts(question)
       department.spending += impact.spending;
 
       if (i == 0) { // only the first effect
-        var breakingNews = "";
+        var breakingNews = duration + " days since the new local council swore in. ";
         if (impact.spending < -15) {
           breakingNews = "Huge budget cut on " + department.name + " spending. ";
         } if (impact.spending < 0) {
@@ -94,8 +94,9 @@ function updateDepartmentImpacts(question)
         }
         publishBreakingNews(breakingNews);
       }
-
-    } else {
+    }
+    else
+    {
       console.error(impact.department + " does NOT exist");
     }
   }
