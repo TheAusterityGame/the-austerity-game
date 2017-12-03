@@ -1,10 +1,14 @@
-document.addEventListener('PAGE DISPLAYED', function(event) {
-    if (event.detail == 1) {        
+document.addEventListener('PAGE DISPLAYED', function(event)
+{
+    if (event.detail == 1)
+    {
         $('input.proceed').hide();
-        $('input.proceed').click(function () {            
+        $('input.proceed').click(function () {
             moveToPage(2);
         });
-        $('input[name="players_count"]').change(function () {
+
+        $('input[name="players_count"]').change(function ()
+        {
             $('input.proceed').show();
             var playersCount = $(this).val();
             var politiciansList = $('.politicians .which');
@@ -13,7 +17,7 @@ document.addEventListener('PAGE DISPLAYED', function(event) {
             for (var i = 0; i < playersCount; i++) {
                 $$.politicians[i] = {
                     gender: generateGender(i),
-                    firstName: "",                    
+                    firstName: "",
                     lastName: generateLastName(i),
                     department: generateDepartment(i),
                     vestedInterest: generateVestedInterest(i),
@@ -25,11 +29,12 @@ document.addEventListener('PAGE DISPLAYED', function(event) {
                 politician.find('.last-name').html($$.politicians[i].lastName);
                 politician.find('.department').html($$.politicians[i].department.name);
                 politician.find('.vested-interest').html($$.politicians[i].vestedInterest.vestedInterest);
-                if (playersCount > 5) {
+                /*if (playersCount > 5) {
                     politician.css('font-size', '16px');
                     politician.find('input').css('font-size', '16px');
-                }
+                }*/
                 politician.appendTo(politiciansList).removeClass('template');
+
                 politician.find('input').data('index', i).on('input', function () {
                     $$.politicians[$(this).data('index')].firstName = $(this).val();
                     var allFilled = true;
@@ -41,7 +46,7 @@ document.addEventListener('PAGE DISPLAYED', function(event) {
                     $('input.proceed').prop('disabled', !allFilled);
                 });
             }
-        });        
+        });
     }
 });
 

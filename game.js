@@ -31,7 +31,7 @@ function displayQuestion(question, slotId)
 {
   var template = '<div class="option fadein" id="' + question.id + '"><div class="option_text">';
   template += question.label;
-  template += '</div><button class="yes">YAY</button><button class="no">NAY</button></div>';
+  template += '</div><button class="yes btn">YAY</button><button class="no btn">NAY</button></div>';
   $('#options #' + slotId).append(template);
 
   $('#' + question.id + ' .yes').click(function()
