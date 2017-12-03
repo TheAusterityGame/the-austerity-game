@@ -79,7 +79,7 @@ function updateDepartmentImpacts(question)
       if (i == 0) { // only the first effect
         var breakingNews = duration + " days since the new local council swore in. ";
         if (impact.spending < -15) {
-          breakingNews = "Huge budget cut on " + department.name + " spending. ";
+          breakingNews = "Huge spending cut on " + department.name + " spending. ";
         } if (impact.spending < 0) {
           breakingNews = "Local budget for " + department.name + " was cut. ";
         } else if (impact.spending > 0) {
