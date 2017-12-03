@@ -64,9 +64,11 @@ html, body, input[type=text], input[type=button], button.yes, button.no {
 /*** STATUS, SCORE ***/
 
 #status, #score {
-    padding: 10px;
-    font-size: larger;
-    text-align: center;
+  padding: 20px 30px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 1.1;
+  color: white;
 }
 
 /*** GRID ***/
@@ -318,6 +320,8 @@ button.no:hover {
 
 #options button {
     margin: 10px;
+    margin-bottom: 20px;
+    margin-right: 15px;
 }
 
 /*** BREAKING ***/
