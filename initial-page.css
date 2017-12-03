@@ -44,4 +44,5 @@
 
 img.portrait {
     float: left;
+    height: 60px;
 }
