@@ -56,24 +56,7 @@ function generateGender(index) {
 }
 
 function generateLastName(index) {
-    return pickRandomlyFrom([
-        "McTory",
-        "Wealthy",
-        "Filthy-Rich",
-        "Greedy",
-        "Leech",
-        "Vermin",
-        "Vampire",
-        "McEvil",        
-        "Baddie",
-        "Evilguy",
-        "Toryman",
-        "Heartless",
-        "Thatcher",
-        "Ruthless",
-        "Weasel",
-        "Scoundrel"
-    ]);
+    return pickRandomlyFrom(surnames).surname;
 }
 
 function generateDepartment(index) {

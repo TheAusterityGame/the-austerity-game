@@ -1,6 +1,7 @@
 var questionsUrl = 'https://api.airtable.com/v0/appUhYpS5VrTEb9Nm/Questions?api_key=keyvcbzivvvtnmex2';
 var tweetsUrl = 'https://api.airtable.com/v0/appUhYpS5VrTEb9Nm/Tweets?api_key=keyvcbzivvvtnmex2';
 var departmentsUrl = 'https://api.airtable.com/v0/appUhYpS5VrTEb9Nm/Departments?api_key=keyvcbzivvvtnmex2';
+var surnamesUrl = 'https://api.airtable.com/v0/appUhYpS5VrTEb9Nm/Surnames?api_key=keyvcbzivvvtnmex2';
 
 function loadData (url, which, parser)
 {
@@ -96,6 +97,11 @@ function parseDepartment(data)
   }
 
   return department;
+}
+
+function parseSurname(data)
+{
+  return {surname: data.fields.surname};
 }
 
 // https://stackoverflow.com/a/10142256/2928562
