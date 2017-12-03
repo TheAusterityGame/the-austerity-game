@@ -1,12 +1,13 @@
 <!doctype html>
 <html>
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Numans" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="index.css" />
-    <link rel="stylesheet" type="text/css" href="initial-page.css" />
-    <link rel="stylesheet" type="text/css" href="final-page.css" />
     <title>The Austerity Game</title>
-    <meta name="description" content="The Austerity Game" />
+    <meta name="description" content="The Austerity Game" >
+
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Numans"> -->
+    <link rel="stylesheet" href="css/bootstrap.css" >
+    <link rel="stylesheet" href="css/style.css" >
+
     <script src="lib/jquery.js"></script>
 </head>
 <body>
@@ -21,7 +22,7 @@
             </div>
             <div class="politicians">
                 <div class="how-many">
-                    How many players are you?
+                    How many players are you?<br/>
                     <input type="radio" name="players_count" value="1">1</input>
                     <input type="radio" name="players_count" value="2">2</input>
                     <input type="radio" name="players_count" value="3">3</input>
@@ -43,7 +44,7 @@
                         Please select the proper number of players.
                     </div>
                 </div>
-                <input type="button" class="proceed" disabled value="Start">
+                <input type="button" class="btn proceed" disabled value="Start">
             </div>
         </div>
         <div id="rules">
@@ -213,6 +214,7 @@
     <script src="breaking.js"></script>
     <script src="initial-page.js"></script>
     <script src="final-page.js"></script>
+    <script src="lib/bootstrap-386.js"></script>
     <script src="boot.js"></script><!-- Must be put last -->
 </body>
 </html>
