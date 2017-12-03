@@ -1,7 +1,13 @@
 const GAME_PERIOD = 2000; // 2 seconds
 const INITIAL_EXTRA_FUNDING = 100; // + the initial spending = initial funding
+const FUNDING_LOSS_PER_GAME_PERIOD = 1;
+const INITIAL_CONSENSUS = 70;
+const MIN_CONSENSUS = 20; // below this, the players are toppled
+
 
 var funding = INITIAL_EXTRA_FUNDING;
+
+var duration = 0;
 
 // all the questions, loaded from the spreadsheet in database.js
 var questions = null,
@@ -88,24 +94,33 @@ document.addEventListener('QUESTIONS LOADED', function(event)
 
 function gameLoop() {
   var totalSpending = 0;
+  var totalPopularity = 0;
   for (var i = 0; i < departments.length; i++) {
     var department = departments[i];
     $(department.bar).css('height', department.spending + '%');
     totalSpending += department.spending;
-  }
+    totalPopularity += department.popularity;    
+  }  
+  duration += 1;
+  funding -= FUNDING_LOSS_PER_GAME_PERIOD;
+  totalPopularity /= departments.length;
   $('#status .budget').html(totalSpending);
   $('#status .funding').html(funding);
   $('#status').fadeIn();
+  $('#score .duration').html(duration);
+  $('#score .consensus').html(parseInt(totalPopularity));
+  $('#score').fadeIn();
 }
 
 document.addEventListener('PAGE DISPLAYED', function(event) {
   if (event.detail == 2) {
     $('#status').hide();
+    $('#score').hide();
     loadData(questionsUrl, 'QUESTIONS', parseQuestion);
     
     for (var i = 0; i < departments.length; i++) {
       var department = departments[i];
-      department.popularity = 100;
+      department.popularity = INITIAL_CONSENSUS;
       department.spending = 100;
       funding += department.spending;
       nameToDepartment[department.name] = department;

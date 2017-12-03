@@ -29,7 +29,7 @@ html, body, input[type=text] {
     display: none;
     grid-template-rows: 100px 1fr 1fr 1fr 1fr 100px;
     grid-template-columns: 1fr 1fr 0.5fr;
-    grid-template-areas: "status status side"
+    grid-template-areas: "status score side"
                          "main main side"
                          "main main side"
                          "main main side"
@@ -41,9 +41,9 @@ html, body, input[type=text] {
     display: grid;
 }
 
-/*** STATUS ***/
+/*** STATUS, SCORE ***/
 
-#status {
+#status, #score {
     padding: 10px;
     font-size: larger;
     text-align: center;
